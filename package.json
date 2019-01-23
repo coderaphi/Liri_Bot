@@ -1,0 +1,28 @@
+{
+  "name": "Liri_Bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coderaphi/Liri_Bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/coderaphi/Liri_Bot/issues"
+  },
+  "homepage": "https://github.com/coderaphi/Liri_Bot#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "dotenv": "^6.2.0",
+    "install": "^0.12.2",
+    "moment": "^2.23.0",
+    "node-spotify-api": "^1.0.7",
+    "npm": "^6.6.0"
+  }
+}
