@@ -1,4 +1,3 @@
-
 //---------require statements---------------------
 require("dotenv").config();
 //obtain spotify keys from local drive
@@ -22,6 +21,9 @@ switch (command) {
         break;
 
     case "spotify-this-song":
+        if (!askLiri){
+            askLiri = "Ace of Base"
+        }
         spotifySong()
         break;
 
@@ -85,18 +87,27 @@ function concertThis() {
                 "\n*******************( BANDS IN TOWN )*******************\n"
             console.log(concertLog);
             logToFile(concertLog);
-
-
-
         }
     )
-
-
 };
 
+function dowhatever() {
+    fs.readFile("random.txt", "utf8", function (err, data) {
+        if (err) {
+                console.log("Error Reading")
+            } else {
+                console.log("Read Successful")
+                console.log(data)
+                data = data.split(",")
+                askLiri=data[1]
+                spotifySong(askLiri)
+            }
+    })
+}
+
 function logToFile(data) {
-    fs.appendFile("some.txt", data, function(err) {
-        if(err) {
+    fs.appendFile("some.txt", data, function (err) {
+        if (err) {
             console.log("Some Error");
         } else {
             console.log("Content Added");
@@ -114,29 +125,16 @@ function spotifySong() {
         }
 
         //   console.log(JSON.stringify(data,null,2)); 
-        var spotifylog = 
+        var spotifylog =
             "\n*******************( SPOTIFY THIS )*******************\n" +
             "\nARTIST NAME :" + data.tracks.items[0].album.artists[0].name +
             "\nSONG PREVIEW :" + data.tracks.items[0].album.artists[0].external_urls.spotify +
             "\n*******************( SPOTIFY THIS )*******************\n"
 
-        console.log(spotifylog) ;
-        
+        console.log(spotifylog);
+
         logToFile(spotifylog);
     });
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
